@@ -1,9 +1,11 @@
-int main()
+#include <stdio.h>
+
+int main ()
 {
     double x, pi, step, sum=0.0;
     int i;
     int num_steps = 10;
-    printf("num_steps %d", num_steps);
+    printf("num_steps %d\n", num_steps);
 
     //step = 1./(double)num_steps;
     //printf(step);
