@@ -5,9 +5,10 @@ int main ()
     double x, pi, step, sum=0.0;
     int i;
     int num_steps = 10;
-    printf("num_steps %d\n", num_steps);
+    printf("num_steps: %d\n", num_steps);
+    step = 1./(double)num_steps;
+    printf("step: %f\n", step); 
 
-    //step = 1./(double)num_steps;
     //printf(step);
     //struct timeval tv;
     //gettimeofday(&tv, NULL);
