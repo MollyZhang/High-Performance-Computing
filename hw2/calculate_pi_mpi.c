@@ -1,20 +1,18 @@
 #include <stdio.h>
+#include <sys/time.h>
 
 int main ()
 {
-    double x, pi, step, sum=0.0;
+    double x, pi, step, start, stop, run_time, sum=0.0;
     int i;
-    int num_steps = 10;
-    printf("num_steps: %d\n", num_steps);
+    int num_steps = 1000000;
     step = 1./(double)num_steps;
-    printf("step: %f\n", step); 
 
-    //struct timeval tv;
-    //gettimeofday(&tv, NULL);
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
 
     // start time in milliseconds
-    // start = (tv.tv_sec)*1000 + (tv.tv_usec)/1000;
-
+    start = (tv.tv_sec)*1000 + (tv.tv_usec)/1000;
     for (i=0; i<num_steps; i++) {
         x = (i + .5)*step;
         sum = sum + 1.0/(1.+ x*x);
@@ -22,9 +20,12 @@ int main ()
     pi = 4.0 * sum * step;
     printf("pi: %f\n", pi);
    
-    //gettimeofday(&tv, NULL);
+    gettimeofday(&tv, NULL);
 
-    // stop time in milliseconds
-    //stop = (tv.tv_sec)*1000 + (tv.tv_usec)/1000;
+    //stop time in milliseconds
+    stop = (tv.tv_sec)*1000 + (tv.tv_usec)/1000;
+   
+    run_time = stop - start; 
+    printf("run time in milliseconds: %f\n", run_time);
     return 0;
 }
