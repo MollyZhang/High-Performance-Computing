@@ -9,20 +9,19 @@ int main ()
     step = 1./(double)num_steps;
     printf("step: %f\n", step); 
 
-    //printf(step);
     //struct timeval tv;
     //gettimeofday(&tv, NULL);
 
     // start time in milliseconds
     // start = (tv.tv_sec)*1000 + (tv.tv_usec)/1000;
 
-    /* for (i=0; i<num_steps; i++) {
+    for (i=0; i<num_steps; i++) {
         x = (i + .5)*step;
         sum = sum + 1.0/(1.+ x*x);
     }
-    pi = 4.0*sum*step;
-
-    */
+    pi = 4.0 * sum * step;
+    printf("pi: %f\n", pi);
+   
     //gettimeofday(&tv, NULL);
 
     // stop time in milliseconds
