@@ -3,4 +3,4 @@ Homework and project scripts for AMS250 High Performance Computing class (Spring
 
 # Language
 C
-Open MPI
+openMPI
