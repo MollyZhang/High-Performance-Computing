@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <sys/time.h>
-#include <mpi.h>
 
 int main ()
 {
@@ -15,7 +14,6 @@ int main ()
     // start time in milliseconds
     start = (tv.tv_sec)*1000 + (tv.tv_usec)/1000;
 
-    #pragma omp parallel for private(x) reduction(+:sum)
     for (i=0; i<num_steps; i++) {
         x = (i + .5)*step;
         sum = sum + 1.0/(1.+ x*x);
