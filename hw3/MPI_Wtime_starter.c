@@ -1,9 +1,14 @@
 #include <mpi.h>
 #include <stdio.h>
 
-double MPI_Wtime();
+int i;
+
 int main ()
 {
-    printf("what's up\n");
+    for (i=1; i<10; i++)
+    {
+        double time1 = MPI_Wtime();
+        printf("%f\n", time1);
+    }
     return 0;
 }
