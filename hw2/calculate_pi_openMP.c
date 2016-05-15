@@ -3,7 +3,7 @@
 
 int main ()
 {
-    double x, pi, step, start, stop, run_time, sum=0.0;
+    double x, pi, step, start, stop, run_time, sum=0.0, cpu_start, cpu_stop;
     int i;
     int num_steps = 1000000000;
     step = 1./(double)num_steps;
@@ -13,6 +13,7 @@ int main ()
 
     // start time in milliseconds
     start = (tv.tv_sec)*1000 + (tv.tv_usec)/1000;
+    cpu_start = clock();
 
     #pragma omp parallel for private(x) reduction(+:sum)
     for (i=0; i<num_steps; i++) {
@@ -26,8 +27,11 @@ int main ()
 
     //stop time in milliseconds
     stop = (tv.tv_sec)*1000 + (tv.tv_usec)/1000;
+    cpu_stop = clock();
    
     run_time = stop - start; 
-    printf("run time in milliseconds: %f\n", run_time);
+    printf("wall time in milliseconds: %f\n", run_time);
+    printf("cpu time in milliseconds: %f\n", (cpu_stop - cpu_start)/1000);
+
     return 0;
 }
