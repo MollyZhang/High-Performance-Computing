@@ -1,0 +1,7 @@
+to compile and run this program: 
+`icc -qopenmp calculate_pi_openMP.c -o calculate_pi_openMP.x`
+`./calculate_pi_openMP.x`
+
+results:
+pi: 3.141593
+run time in milliseconds: 510.000000
